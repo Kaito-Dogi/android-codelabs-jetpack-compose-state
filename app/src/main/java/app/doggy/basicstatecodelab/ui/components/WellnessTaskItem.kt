@@ -49,7 +49,7 @@ private fun WellnessTaskItemPreview() {
   BasicStateCodelabTheme {
     Surface {
       WellnessTaskItem(
-        taskResId = R.string.close_button_description,
+        taskResId = R.string.wellness_task_item_text,
         onCloseButtonClick = {},
       )
     }

@@ -1,6 +1,7 @@
 package app.doggy.basicstatecodelab.ui.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Surface
@@ -21,11 +22,17 @@ import app.doggy.basicstatecodelab.ui.theme.BasicStateCodelabTheme
 internal fun WaterCounter(
   modifier: Modifier = Modifier,
 ) {
-  var count by remember {
-    mutableStateOf(0)
-  }
+  var count by remember { mutableStateOf(0) }
+
   Column(modifier = modifier.padding(16.dp)) {
     if (count > 0) {
+      var showTask by remember { mutableStateOf(true) }
+      if (showTask) {
+        WellnessTaskItem(
+          taskResId = R.string.wellness_task_item_text,
+          onCloseButtonClick = { showTask = false },
+        )
+      }
       Text(
         text = stringResource(
           id = R.string.water_counter_text,
@@ -33,12 +40,19 @@ internal fun WaterCounter(
         ),
       )
     }
-    Button(
-      onClick = { count++ },
-      modifier = Modifier.padding(top = 8.dp),
-      enabled = count < 10,
-    ) {
-      Text(text = stringResource(id = R.string.add_button_text))
+    Row(modifier = Modifier.padding(top = 8.dp)) {
+      Button(
+        onClick = { count++ },
+        enabled = count < 10,
+      ) {
+        Text(text = stringResource(id = R.string.add_button_text))
+      }
+      Button(
+        onClick = { count = 0 },
+        modifier = Modifier.padding(start = 8.dp),
+      ) {
+        Text(text = stringResource(id = R.string.clear_button_text))
+      }
     }
   }
 }

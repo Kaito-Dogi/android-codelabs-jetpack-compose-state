@@ -1,6 +1,8 @@
 <resources>
   <string name="app_name">Basic State Codelab</string>
   <string name="water_counter_text">You\' ve had %d glasses.</string>
-  <string name="add_button_text">Add one.</string>
+  <string name="add_button_text">Add one</string>
   <string name="close_button_description">Close</string>
+  <string name="wellness_task_item_text">Have you taken your 15 minute walk today?</string>
+  <string name="clear_button_text">Clear water count</string>
 </resources>
