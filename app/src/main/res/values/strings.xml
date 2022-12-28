@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Basic State Codelab</string>
+  <string name="app_name">Basic State Codelab</string>
+  <string name="water_count">You\' ve had %d glasses.</string>
 </resources>
