@@ -18,7 +18,7 @@ internal fun WaterCounter(
   val count = 0
   Text(
     text = stringResource(
-      id = R.string.water_count,
+      id = R.string.water_counter_text,
       count,
     ),
     modifier = modifier.padding(16.dp),
