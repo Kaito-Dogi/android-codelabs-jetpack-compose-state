@@ -1,4 +1,5 @@
 <resources>
   <string name="app_name">Basic State Codelab</string>
   <string name="water_counter_text">You\' ve had %d glasses.</string>
+  <string name="add_button_text">Add one.</string>
 </resources>
