@@ -27,6 +27,7 @@ import app.doggy.basicstatecodelab.ui.theme.BasicStateCodelabTheme
 internal fun WellnessTaskItem(
   taskId: Int,
   @StringRes taskResId: Int,
+  onCloseButtonClick: () -> Unit,
   modifier: Modifier = Modifier,
 ) {
   var checked by rememberSaveable { mutableStateOf(false) }
@@ -36,7 +37,7 @@ internal fun WellnessTaskItem(
     taskResId = taskResId,
     checked = checked,
     onCheckedChange = { newValue -> checked = newValue },
-    onCloseButtonClick = {},
+    onCloseButtonClick = onCloseButtonClick,
     modifier = modifier,
   )
 }
