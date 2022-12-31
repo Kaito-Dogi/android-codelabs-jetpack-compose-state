@@ -13,6 +13,12 @@ internal class WellnessViewModel : ViewModel() {
   fun onCloseButtonClick(task: WellnessTask) {
     _tasks.remove(task)
   }
+
+  fun onCheckedChanged(task: WellnessTask, checked: Boolean) {
+    tasks.find { it.id == task.id }?.let {
+      task.checked = checked
+    }
+  }
 }
 
 private fun getWellnessTasks() = List(30) { i ->

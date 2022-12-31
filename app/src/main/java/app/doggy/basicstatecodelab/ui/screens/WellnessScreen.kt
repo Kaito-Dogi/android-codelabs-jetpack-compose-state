@@ -19,7 +19,17 @@ internal fun WellnessScreen(
     WaterCounter()
     WellnessTaskList(
       list = viewModel.tasks,
-      onCloseButtonClick = { task -> viewModel.onCloseButtonClick(task) },
+      onCheckedChange = { task, checked ->
+        viewModel.onCheckedChanged(
+          task = task,
+          checked = checked,
+        )
+      },
+      onCloseButtonClick = { task ->
+        viewModel.onCloseButtonClick(
+          task = task,
+        )
+      },
     )
   }
 }

@@ -11,10 +11,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -25,25 +21,6 @@ import app.doggy.basicstatecodelab.ui.theme.BasicStateCodelabTheme
 
 @Composable
 internal fun WellnessTaskItem(
-  taskId: Int,
-  @StringRes taskResId: Int,
-  onCloseButtonClick: () -> Unit,
-  modifier: Modifier = Modifier,
-) {
-  var checked by rememberSaveable { mutableStateOf(false) }
-
-  WellnessTaskItem(
-    taskId = taskId,
-    taskResId = taskResId,
-    checked = checked,
-    onCheckedChange = { newValue -> checked = newValue },
-    onCloseButtonClick = onCloseButtonClick,
-    modifier = modifier,
-  )
-}
-
-@Composable
-private fun WellnessTaskItem(
   taskId: Int,
   @StringRes taskResId: Int,
   checked: Boolean,

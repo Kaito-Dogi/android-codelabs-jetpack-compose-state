@@ -11,6 +11,7 @@ import app.doggy.basicstatecodelab.domain.model.WellnessTask
 @Composable
 internal fun WellnessTaskList(
   list: List<WellnessTask>,
+  onCheckedChange: (WellnessTask, Boolean) -> Unit,
   onCloseButtonClick: (WellnessTask) -> Unit,
   modifier: Modifier = Modifier,
 ) {
@@ -24,6 +25,8 @@ internal fun WellnessTaskList(
       WellnessTaskItem(
         taskId = task.id,
         taskResId = task.resId,
+        checked = task.checked,
+        onCheckedChange = { checked -> onCheckedChange(task, checked) },
         onCloseButtonClick = { onCloseButtonClick(task) },
       )
     }
@@ -42,6 +45,7 @@ private fun getWellnessTasks() = List(30) { i ->
 private fun WellnessTaskListPreview() {
   WellnessTaskList(
     list = getWellnessTasks(),
+    onCheckedChange = { _, _ -> },
     onCloseButtonClick = {},
   )
 }
