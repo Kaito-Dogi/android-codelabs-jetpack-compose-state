@@ -30,7 +30,7 @@ internal fun WellnessTaskList(
   }
 }
 
-internal fun getWellnessTasks() = List(30) { i ->
+private fun getWellnessTasks() = List(30) { i ->
   WellnessTask(
     id = i,
     resId = R.string.task_text,
