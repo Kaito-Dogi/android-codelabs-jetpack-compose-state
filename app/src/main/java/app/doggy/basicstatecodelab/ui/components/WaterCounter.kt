@@ -23,6 +23,19 @@ internal fun WaterCounter(
 ) {
   var count by rememberSaveable { mutableStateOf(0) }
 
+  WaterCounter(
+    count = count,
+    onIncrement = { count++ },
+    modifier = modifier,
+  )
+}
+
+@Composable
+private fun WaterCounter(
+  count: Int,
+  onIncrement: () -> Unit,
+  modifier: Modifier = Modifier,
+) {
   Column(modifier = modifier.padding(16.dp)) {
     if (count > 0) {
       Text(
@@ -33,7 +46,7 @@ internal fun WaterCounter(
       )
     }
     Button(
-      onClick = { count++ },
+      onClick = onIncrement,
       enabled = count < 10,
       modifier = Modifier.padding(top = 8.dp),
     ) {
@@ -47,7 +60,10 @@ internal fun WaterCounter(
 private fun WaterCountPreview() {
   BasicStateCodelabTheme {
     Surface {
-      WaterCounter()
+      WaterCounter(
+        count = 0,
+        onIncrement = {},
+      )
     }
   }
 }
